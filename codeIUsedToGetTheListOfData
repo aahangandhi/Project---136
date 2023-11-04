@@ -1,0 +1,24 @@
+import pandas as pd
+
+data = pd.read_csv('/content/star_with_gravity.csv')
+
+star_names = data['Proper name'].tolist()
+star_masses = data['Mass (MJ)'].tolist()
+star_radii = data['Radius (RJ)'].tolist()
+star_distances = data['Brightest Stars Distance (ly)'].tolist()
+star_gravities = data['gravity'].tolist()
+
+star_data = []
+for i in range(len(star_names)):
+    star_info = {
+        'Star Name': star_names[i],
+        'Mass (MJ)': star_masses[i],
+        'Radius (RJ)': star_radii[i],
+        'Distance (ly)': star_distances[i],
+        'Gravity (g)': star_gravities[i]
+    }
+    star_data.append(star_info)
+
+# Print the data in the desired format
+for star_info in star_data:
+    print(str(star_info) + ",")
